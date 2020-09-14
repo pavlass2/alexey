@@ -1,5 +1,6 @@
 import os
 import json
+import ctypes
 
 from time import sleep
 from datetime import datetime
@@ -72,6 +73,8 @@ def log_session(session):
         json.dump(data, outfile, indent=4)
 
 
+if os.name=='nt':
+    ctypes.windll.kernel32.SetConsoleTitleW("Alexey")
 # Program cycle.
 print("Welcome to Alexey, the work session management and logging program.\nCreated by Pavel Skála.")
 run = True
